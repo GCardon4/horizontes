@@ -3,267 +3,638 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizontes Campestres | Su Aliado en el Oriente Antioqueño</title>
+    <title>Horizontes Campestres | Lotes Campestres en Marinilla, Oriente Antioqueño</title>
+    <meta name="description" content="Horizontes Campestres ofrece lotes campestres en Marinilla, Antioquia. Parcelaciones en Vereda Montañita y Vereda El Salto, listas para construir. Acompañamiento personalizado. Contáctenos: 300 594 3231.">
+    <meta name="keywords" content="lotes campestres Marinilla, parcelación Oriente Antioqueño, lotes Vereda Montañita, lotes El Salto Marinilla, inversión inmobiliaria Antioquia, Horizontes Campestres, terrenos Marinilla Antioquia">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Horizontes Campestres">
+    <meta name="geo.region" content="CO-ANT">
+    <meta name="geo.placename" content="Marinilla, Antioquia, Colombia">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Horizontes Campestres | Lotes Campestres en Marinilla, Antioquia">
+    <meta property="og:description" content="Parcelaciones campestres en el Oriente Antioqueño. Lotes en Vereda Montañita y El Salto, Marinilla. Su aliado de confianza. Contáctenos: 300 594 3231.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:image" content="images/marinilla-01.jpeg">
+    <meta property="og:site_name" content="Horizontes Campestres">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Horizontes Campestres | Lotes Campestres Marinilla">
+    <meta name="twitter:description" content="Lotes campestres en Marinilla, Oriente Antioqueño. Contáctenos: 300 594 3231.">
+    <meta name="twitter:image" content="images/marinilla-01.jpeg">
+
+    <!-- Schema.org RealEstateAgent -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Horizontes Campestres",
+        "description": "Inmobiliaria especializada en lotes campestres en Marinilla, Oriente Antioqueño. Parcelaciones en Vereda Montañita y Vereda El Salto.",
+        "telephone": "+573005943231",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Marinilla",
+            "addressRegion": "Antioquia",
+            "addressCountry": "CO"
+        },
+        "areaServed": "Marinilla, Oriente Antioqueño, Antioquia",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Proyectos de Parcelación Campestre",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "name": "Horizontes Montañita",
+                    "description": "Parcelación exclusiva de lotes para viviendas campestres en Vereda Montañita, Marinilla, Antioquia"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Horizontes El Salto",
+                    "description": "Loteo campestre en Vereda El Salto, Marinilla, Antioquia"
+                }
+            ]
+        }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Chosen Palette: Warm Neutral (bg-gray-50, bg-white) with Emerald Green (emerald-600/700) -->
-    <!-- Application Structure Plan: 
-        Estructura de SPA (Single Page Application) con navegación por pestañas (scroll-spy) para guiar al usuario a través de un flujo lógico diseñado para la conversión de clientes, no para reflejar la estructura del informe.
-        Flujo:
-        1. Inicio (Misión): Establece confianza y filosofía.
-        2. Nuestra Propuesta (Valor): El núcleo. Dividido en 'Inversión Accesible' (con gráfico interactivo) y 'Acompañamiento Personalizado' (con diagrama de proceso visual en HTML/CSS). Esta es la sección más importante.
-        3. Proyectos (Oferta): Muestra los productos actuales (Montañita, El Salto) en tarjetas claras.
-        4. Nuestro Equipo (Estructura): Presenta la estructura organizacional como un diagrama HTML/CSS para reforzar la promesa de 'acompañamiento' mostrando quién está detrás.
-        Interacciones: Navegación pegajosa con resaltado de sección activa (scroll-spy), gráfico de barras interactivo (tooltips), y diseño totalmente responsivo. Esta estructura prioriza la claridad de la propuesta de valor y la facilidad de exploración para un cliente potencial.
-    -->
-    <!-- Visualization & Content Choices: 
-        1. Report Info: Comparación de precios de lotes (Propuesta de Valor, $52M vs $1.25B).
-           Goal: Comparar, resaltar la accesibilidad.
-           Viz/Method: Gráfico de Barras (Bar Chart).
-           Interaction: Tooltips al pasar el ratón.
-           Justification: Impacto visual inmediato de la diferencia de costos, mucho más fuerte que el texto solo.
-           Library: Chart.js (Canvas).
-        2. Report Info: Acompañamiento personalizado (Misión, Propuesta de Valor).
-           Goal: Organizar, informar, hacer concreto lo abstracto.
-           Viz/Method: Diagrama de Proceso/Flujo (Stepper) con 4 pasos clave (Búsqueda, Asesoría, Trámites, Entrega).
-           Interaction: Estático, visual.
-           Justification: Traduce la promesa de "acompañamiento" en un proceso tangible y fácil de entender para el cliente.
-           Library: HTML/CSS/Tailwind (Flexbox).
-        3. Report Info: Estructura Organizacional (Roles clave).
-           Goal: Organizar, generar confianza.
-           Viz/Method: Diagrama de Organigrama simple.
-           Interaction: Estático, visual.
-           Justification: Muestra que hay un equipo profesional y estructurado detrás de la promesa de servicio, reforzando la confianza.
-           Library: HTML/CSS/Tailwind (Grid/Flexbox).
-        4. Report Info: Proyectos Actuales (Montañita, El Salto).
-           Goal: Informar.
-           Viz/Method: Tarjetas de características (Cards) en un diseño de cuadrícula.
-           Interaction: Estático, informativo.
-           Justification: Formato estándar y claro para presentar productos.
-           Library: HTML/CSS/Tailwind (Grid).
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        body { font-family: 'Inter', sans-serif; }
+
+        /* ── Hero Slider ── */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
         }
+        .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.4s ease-in-out;
+            will-change: opacity;
+        }
+        .slide.active { opacity: 1; }
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.40) 0%,
+                rgba(0,0,0,0.25) 45%,
+                rgba(0,0,0,0.65) 100%
+            );
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.6rem;
+            z-index: 10;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            border: none;
+            padding: 0;
+        }
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        /* ── WhatsApp Float ── */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            background: #25D366;
+            color: white;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.85rem;
+            box-shadow: 0 4px 24px rgba(37,211,102,0.45);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 32px rgba(37,211,102,0.65);
+        }
+
+        /* ── Pulse animation for WhatsApp CTAs ── */
+        @keyframes pulse-wa {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+            70%       { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+        }
+        .btn-wa-pulse { animation: pulse-wa 2.2s infinite; }
+
+        /* ── Scroll bounce ── */
+        @keyframes bounce-y {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(7px); }
+        }
+        .bounce-y { animation: bounce-y 2s infinite; }
+
+        /* ── Nav ── */
+        .nav-link { transition: all 0.25s ease; }
+        .nav-link.active { font-weight: 700; color: #059669; }
+
+        /* ── Chart ── */
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            max-width: 580px;
+            margin: 0 auto;
+            height: 290px;
         }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50;
-        }
-        .nav-link.active {
-            @apply font-bold text-emerald-600 bg-emerald-100;
-        }
-        .section-title {
-            @apply text-3xl font-bold text-gray-800 text-center mb-4;
-        }
-        .section-subtitle {
-            @apply text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12;
-        }
+        @media (min-width: 768px) { .chart-container { height: 340px; } }
+
+        /* ── Cards ── */
         .card {
-            @apply bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px -4px rgba(0,0,0,0.09);
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
         }
+        .card:hover {
+            box-shadow: 0 20px 36px -6px rgba(0,0,0,0.14);
+            transform: translateY(-3px);
+        }
+        .project-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        /* ── Step icon ── */
         .icon-wrapper {
-            @apply flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 text-2xl font-bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            background: #d1fae5;
+            color: #059669;
+            font-size: 1.1rem;
+            font-weight: 700;
+            flex-shrink: 0;
         }
+
+        /* ── CTA section gradient ── */
+        .cta-section {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 55%, #047857 100%);
+        }
+
+        /* ── Mobile menu ── */
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Floating WhatsApp button -->
+    <a href="https://wa.me/573005943231?text=Hola!%20Estoy%20interesado%20en%20los%20lotes%20de%20Horizontes%20Campestres"
+       class="whatsapp-float"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Contáctenos por WhatsApp 300 594 3231">
+        💬
+    </a>
+
+    <!-- ── Navigation ── -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav id="nav" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Menú principal">
             <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <span class="text-2xl font-bold text-emerald-600">Horizontes Campestres</span>
+                <a href="#inicio" class="flex-shrink-0 flex items-center gap-2" aria-label="Horizontes Campestres - Inicio">
+                    <img src="images/logotipo-horizontes.svg" alt="Logo Horizontes Campestres" class="h-9 w-auto" onerror="this.style.display='none'">
+                    <span class="font-bold text-emerald-600 text-lg leading-tight">Horizontes<br><span class="text-gray-600 font-medium text-xs tracking-wider">CAMPESTRES</span></span>
+                </a>
+
+                <!-- Desktop links -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#inicio"    class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Inicio</a>
+                    <a href="#nosotros"  class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Nosotros</a>
+                    <a href="#propuesta" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Propuesta</a>
+                    <a href="#proyectos" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Proyectos</a>
+                    <a href="#equipo"    class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Equipo</a>
+                    <a href="https://wa.me/573005943231?text=Hola!%20Estoy%20interesado%20en%20los%20lotes%20de%20Horizontes%20Campestres"
+                       target="_blank" rel="noopener noreferrer"
+                       class="ml-3 bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition-colors whitespace-nowrap">
+                        📱 300 594 3231
+                    </a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#inicio" class="nav-link active">Inicio</a>
-                        <a href="#propuesta" class="nav-link">Nuestra Propuesta</a>
-                        <a href="#proyectos" class="nav-link">Proyectos</a>
-                        <a href="#equipo" class="nav-link">Nuestro Equipo</a>
-                    </div>
+
+                <!-- Hamburger -->
+                <button id="mobile-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="block w-6 h-0.5 bg-current mb-1.5 transition-all"></span>
+                    <span class="block w-6 h-0.5 bg-current mb-1.5 transition-all"></span>
+                    <span class="block w-6 h-0.5 bg-current transition-all"></span>
+                </button>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden pb-4 border-t border-gray-100 pt-2">
+                <div class="flex flex-col space-y-1">
+                    <a href="#inicio"    class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-emerald-50">Inicio</a>
+                    <a href="#nosotros"  class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-emerald-50">Nosotros</a>
+                    <a href="#propuesta" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-emerald-50">Propuesta de Valor</a>
+                    <a href="#proyectos" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-emerald-50">Proyectos</a>
+                    <a href="#equipo"    class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-emerald-50">Nuestro Equipo</a>
+                    <a href="https://wa.me/573005943231?text=Hola!%20Estoy%20interesado%20en%20Horizontes%20Campestres"
+                       target="_blank" rel="noopener noreferrer"
+                       class="mt-2 bg-emerald-600 text-white text-center px-4 py-3 rounded-full text-sm font-semibold">
+                        💬 WhatsApp: 300 594 3231
+                    </a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="inicio" class="py-20 bg-white">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
-                    Su Aliado de Confianza en el Oriente Antioqueño
-                </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    En Horizontes Campestres, nuestra misión es ser más que una inmobiliaria; somos su aliado de confianza. Le acompañamos en cada etapa del proceso para encontrar la propiedad soñada, basándonos en la honestidad, la transparencia y un servicio integral que garantiza su satisfacción y refuerza su confianza.
+        <!-- ── Hero + Slider ── -->
+        <section id="inicio" class="hero-slider" aria-label="Galería Horizontes Campestres">
+            <div class="slide active"
+                 style="background-image: url('images/marinilla-01.jpeg')"
+                 role="img" aria-label="Vista panorámica de Marinilla, Oriente Antioqueño"></div>
+            <div class="slide"
+                 style="background-image: url('images/marinilla02.jpeg')"
+                 role="img" aria-label="Paisaje campestre de Marinilla, Antioquia"></div>
+            <div class="slide"
+                 style="background-image: url('images/proyectos/reel.jpg')"
+                 role="img" aria-label="Proyecto Horizontes Campestres en Marinilla"></div>
+
+            <div class="slide-overlay" aria-hidden="true"></div>
+
+            <!-- Hero content -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
+                <p class="text-emerald-300 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4">
+                    Marinilla · Oriente Antioqueño · Antioquia
                 </p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg max-w-4xl">
+                    Su Aliado de Confianza<br class="hidden sm:block"> en el Oriente Antioqueño
+                </h1>
+                <p class="text-base sm:text-xl text-gray-200 max-w-2xl mb-10 drop-shadow leading-relaxed">
+                    Lotes campestres listos para construir en Marinilla.<br class="hidden sm:block">
+                    Lo acompañamos en cada paso con honestidad, transparencia y servicio integral.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#proyectos"
+                       class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 shadow-lg hover:-translate-y-0.5">
+                        Ver Proyectos
+                    </a>
+                    <a href="https://wa.me/573005943231?text=Hola!%20Estoy%20interesado%20en%20los%20lotes%20de%20Horizontes%20Campestres"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-wa-pulse bg-[#25D366] hover:bg-[#1fba5a] text-white font-bold px-8 py-4 rounded-full text-base sm:text-lg transition-all duration-300 shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        💬 Contáctanos Ahora
+                    </a>
+                </div>
+                <a href="tel:+573005943231"
+                   class="mt-6 text-white/75 hover:text-white text-sm flex items-center gap-1.5 transition-colors">
+                    📞 <span class="underline underline-offset-2">300 594 3231</span>
+                </a>
+            </div>
+
+            <!-- Slider dots -->
+            <div class="slider-dots" role="tablist" aria-label="Controles del slider">
+                <button class="slider-dot active" data-index="0" role="tab" aria-label="Imagen 1" aria-selected="true"></button>
+                <button class="slider-dot"         data-index="1" role="tab" aria-label="Imagen 2" aria-selected="false"></button>
+                <button class="slider-dot"         data-index="2" role="tab" aria-label="Imagen 3" aria-selected="false"></button>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 bounce-y text-white/60 hidden sm:flex flex-col items-center gap-1 text-xs select-none" aria-hidden="true">
+                <span>Explorar</span>
+                <span class="text-lg">↓</span>
             </div>
         </section>
 
-        <section id="propuesta" class="py-20">
+        <!-- ── Stats bar ── -->
+        <section class="bg-emerald-700 text-white py-6" aria-label="Datos clave">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Nuestra Propuesta de Valor Única</h2>
-                <p class="section-subtitle">
-                    Entendemos que comprar una propiedad es una gran decisión. Por eso, nuestra propuesta se basa en dos pilares fundamentales que nos diferencian: hacer su inversión accesible y brindarle un acompañamiento personalizado inigualable.
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <p class="text-3xl font-extrabold">2+</p>
+                        <p class="text-emerald-200 text-sm mt-1">Proyectos activos</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-extrabold">100%</p>
+                        <p class="text-emerald-200 text-sm mt-1">Lotes titulados</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-extrabold">Marinilla</p>
+                        <p class="text-emerald-200 text-sm mt-1">Oriente Antioqueño</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-extrabold">Integral</p>
+                        <p class="text-emerald-200 text-sm mt-1">Acompañamiento personalizado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Quiénes Somos ── -->
+        <section id="nosotros" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-emerald-600 text-xs font-semibold tracking-widest uppercase">Quiénes Somos</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2 mb-6 leading-tight">
+                            Más que una inmobiliaria,<br>somos su aliado de confianza
+                        </h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-5">
+                            En Horizontes Campestres, nuestra misión es acompañarle en cada etapa del proceso para encontrar la propiedad soñada, basándonos en la honestidad, la transparencia y un servicio integral que garantiza su satisfacción y refuerza su confianza.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Somos especialistas en parcelaciones campestres en el Oriente Antioqueño, con proyectos estratégicamente ubicados en Marinilla — una región de alto potencial de valorización, clima privilegiado y excelente conectividad con Medellín.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#propuesta"
+                               class="bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors text-center text-sm">
+                                Nuestra propuesta
+                            </a>
+                            <a href="https://wa.me/573005943231?text=Hola!%20Quiero%20más%20información%20sobre%20Horizontes%20Campestres"
+                               target="_blank" rel="noopener noreferrer"
+                               class="border-2 border-emerald-600 text-emerald-700 font-semibold px-6 py-3 rounded-full hover:bg-emerald-50 transition-colors text-center text-sm">
+                                💬 Hablar con un asesor
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/marinilla-01.jpeg"
+                             alt="Vista panorámica de Marinilla, Antioquia"
+                             class="rounded-xl shadow-lg object-cover w-full h-48 lg:h-56">
+                        <img src="images/marinilla02.jpeg"
+                             alt="Paisaje campestre del Oriente Antioqueño"
+                             class="rounded-xl shadow-lg object-cover w-full h-48 lg:h-56 mt-8">
+                        <div class="col-span-2 bg-emerald-50 rounded-xl p-5 flex items-center gap-4 border border-emerald-100">
+                            <span class="text-3xl" aria-hidden="true">🏡</span>
+                            <div>
+                                <p class="font-semibold text-gray-800 text-sm">Lotes campestres a precios accesibles</p>
+                                <p class="text-xs text-gray-600 mt-0.5">Proyectos disponibles en Marinilla, Antioquia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Propuesta de Valor ── -->
+        <section id="propuesta" class="py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <span class="block text-emerald-600 text-xs font-semibold tracking-widest uppercase text-center mb-3">Por qué elegirnos</span>
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-4">Nuestra Propuesta de Valor Única</h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-14">
+                    Entendemos que comprar una propiedad es una gran decisión. Por eso, nuestra propuesta se basa en dos pilares fundamentales: hacer su inversión accesible y brindarle un acompañamiento personalizado inigualable.
                 </p>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-2xl font-bold text-emerald-700 mb-4">1. Inversión Accesible: Vea la Diferencia</h3>
                         <p class="text-gray-600 mb-6">
-                            Ofrecemos lotes de alta calidad a precios competitivos. Mientras que las inversiones en zonas urbanas pueden ser prohibitivas y otros lotes en la región tienen costos variables, nuestros proyectos están diseñados para maximizar su poder adquisitivo. Este gráfico ilustra el panorama del mercado, destacando por qué nuestra oferta es una oportunidad de inversión inteligente.
+                            Ofrecemos lotes de alta calidad a precios competitivos. Mientras que las inversiones en zonas urbanas pueden ser prohibitivas, nuestros proyectos en el Oriente Antioqueño están diseñados para maximizar su poder adquisitivo y garantizar alta valorización.
                         </p>
                         <div class="chart-container">
-                            <canvas id="priceChart"></canvas>
+                            <canvas id="priceChart" aria-label="Comparación de precios de lotes en el mercado"></canvas>
                         </div>
-                        <p class="text-sm text-gray-500 mt-4 text-center">
-                            Datos de mercado basados en comparaciones de portales inmobiliarios.
-                        </p>
+                        <p class="text-xs text-gray-500 mt-4 text-center">Datos basados en comparaciones de portales inmobiliarios.</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-2xl font-bold text-emerald-700 mb-4">2. Acompañamiento Personalizado y Confianza</h3>
                         <p class="text-gray-600 mb-8">
-                            La confianza es la base de todo lo que hacemos. Actuamos con integridad total y nos centramos en entender sus necesidades en cada fase de la compra. Este es nuestro compromiso de servicio:
+                            La confianza es la base de todo lo que hacemos. Actuamos con integridad total y nos centramos en entender sus necesidades en cada fase de la compra:
                         </p>
-                        
                         <div class="space-y-6">
                             <div class="flex items-start space-x-4">
                                 <div class="icon-wrapper"><span>1</span></div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-800">Búsqueda y Asesoría</h4>
-                                    <p class="text-gray-600">Entendemos su visión y le presentamos las mejores opciones sin presión, con total transparencia.</p>
+                                    <h4 class="text-base font-semibold text-gray-800">Búsqueda y Asesoría</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Entendemos su visión y le presentamos las mejores opciones sin presión, con total transparencia.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
                                 <div class="icon-wrapper"><span>2</span></div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-800">Negociación Honesta</h4>
-                                    <p class="text-gray-600">Actuamos con integridad, asegurando precios justos y condiciones claras en cada transacción.</p>
+                                    <h4 class="text-base font-semibold text-gray-800">Negociación Honesta</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Actuamos con integridad, asegurando precios justos y condiciones claras en cada transacción.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
                                 <div class="icon-wrapper"><span>3</span></div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-800">Gestión y Trámites</h4>
-                                    <p class="text-gray-600">Manejamos la documentación y los trámites legales, garantizando un proceso ordenado y sin complicaciones.</p>
+                                    <h4 class="text-base font-semibold text-gray-800">Gestión y Trámites</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Manejamos la documentación y los trámites legales, garantizando un proceso ordenado y sin complicaciones.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
                                 <div class="icon-wrapper"><span>4</span></div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-800">Entrega y Satisfacción</h4>
-                                    <p class="text-gray-600">Nuestro acompañamiento continúa hasta que tenga su propiedad, asegurando una experiencia de compra exitosa.</p>
+                                    <h4 class="text-base font-semibold text-gray-800">Entrega y Satisfacción</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Nuestro acompañamiento continúa hasta que tenga su propiedad, asegurando una experiencia de compra exitosa.</p>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Inline CTA -->
+                        <div class="mt-8 pt-6 border-t border-gray-100">
+                            <a href="https://wa.me/573005943231?text=Hola!%20Quiero%20asesoría%20personalizada%20para%20comprar%20un%20lote"
+                               target="_blank" rel="noopener noreferrer"
+                               class="w-full bg-[#25D366] hover:bg-[#1fba5a] text-white font-semibold px-6 py-3 rounded-full transition-colors block text-center text-sm">
+                                💬 Solicitar asesoría personalizada
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="proyectos" class="py-20 bg-emerald-50">
+        <!-- ── Proyectos ── -->
+        <section id="proyectos" class="py-20 bg-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Proyectos Actuales en Marinilla</h2>
-                <p class="section-subtitle">
-                    Descubra nuestras parcelaciones de terrenos en zonas campestres, diseñadas para ser accesibles y listas para construir la vivienda de sus sueños, aprovechando la tranquilidad y los paisajes del Oriente Antioqueño.
+                <span class="block text-emerald-600 text-xs font-semibold tracking-widest uppercase text-center mb-3">Lo que tenemos para usted</span>
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-4">Proyectos Actuales en Marinilla</h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-14">
+                    Descubra nuestras parcelaciones de terrenos campestres, diseñadas para ser accesibles y listas para construir la vivienda de sus sueños en el Oriente Antioqueño.
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card">
+                    <!-- Montañita -->
+                    <article class="card" itemscope itemtype="https://schema.org/Product">
+                        <img src="images/proyectos/horizontes-monta%C3%B1ita.jpg"
+                             alt="Lotes campestres Horizontes Montañita - Vereda Montañita, Marinilla, Antioquia"
+                             class="project-img"
+                             itemprop="image"
+                             onerror="this.src='images/marinilla-01.jpeg'">
                         <div class="p-8">
-                            <span class="text-sm font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">Vereda Montañita</span>
-                            <h3 class="text-2xl font-bold text-gray-800 my-3">Horizontes Montañita</h3>
-                            <p class="text-gray-600">
-                                Una parcelación exclusiva de lotes para viviendas campestres. Los terrenos se ofrecen a un precio excelente y ya están divididos y listos para que comience su proyecto de construcción en un entorno rural y asequible.
+                            <span class="text-xs font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">📍 Vereda Montañita, Marinilla</span>
+                            <h3 class="text-2xl font-bold text-gray-800 my-3" itemprop="name">Horizontes Montañita</h3>
+                            <p class="text-gray-600 mb-5" itemprop="description">
+                                Una parcelación exclusiva de lotes para viviendas campestres. Los terrenos están divididos y listos para iniciar su proyecto de construcción en un entorno rural privilegiado, con acceso vial y servicios disponibles.
                             </p>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Lotes listos para construcción</li>
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Escritura pública y titulación</li>
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Acceso vial</li>
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Entorno natural privilegiado</li>
+                            </ul>
+                            <a href="https://wa.me/573005943231?text=Hola!%20Quiero%20información%20sobre%20Horizontes%20Montañita"
+                               target="_blank" rel="noopener noreferrer"
+                               class="w-full bg-emerald-600 text-white text-center font-semibold px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors block text-sm">
+                                💬 Consultar disponibilidad
+                            </a>
                         </div>
-                        <div class="px-8 pb-6 bg-gray-50">
-                            <span class="text-gray-700 font-medium">Lotes listos para construcción</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
+                    </article>
+
+                    <!-- El Salto -->
+                    <article class="card" itemscope itemtype="https://schema.org/Product">
+                        <img src="images/proyectos/lotes_el_salto.jpg"
+                             alt="Lotes campestres Horizontes El Salto - Vereda El Salto, Marinilla, Antioquia"
+                             class="project-img"
+                             itemprop="image"
+                             onerror="this.src='images/marinilla02.jpeg'">
                         <div class="p-8">
-                            <span class="text-sm font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">Vereda El Salto</span>
-                            <h3 class="text-2xl font-bold text-gray-800 my-3">Horizontes El Salto</h3>
-                            <p class="text-gray-600">
-                                Otro de nuestros proyectos de loteo campestre, situado en la Vereda El Salto. Al igual que Montañita, ofrece lotes a precios competitivos y está completamente preparado para el desarrollo de viviendas en un entorno natural.
+                            <span class="text-xs font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">📍 Vereda El Salto, Marinilla</span>
+                            <h3 class="text-2xl font-bold text-gray-800 my-3" itemprop="name">Horizontes El Salto</h3>
+                            <p class="text-gray-600 mb-5" itemprop="description">
+                                Loteo campestre situado en la Vereda El Salto. Ofrece lotes a precios competitivos en un entorno natural único, completamente preparado para el desarrollo de viviendas campestres con todas las comodidades de la región.
                             </p>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Precios competitivos en el mercado</li>
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Escritura pública y titulación</li>
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Entorno natural y tranquilo</li>
+                                <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Alta valorización</li>
+                            </ul>
+                            <a href="https://wa.me/573005943231?text=Hola!%20Quiero%20información%20sobre%20Horizontes%20El%20Salto"
+                               target="_blank" rel="noopener noreferrer"
+                               class="w-full bg-emerald-600 text-white text-center font-semibold px-6 py-3 rounded-full hover:bg-emerald-700 transition-colors block text-sm">
+                                💬 Consultar disponibilidad
+                            </a>
                         </div>
-                        <div class="px-8 pb-6 bg-gray-50">
-                            <span class="text-gray-700 font-medium">Precios competitivos</span>
-                        </div>
+                    </article>
+                </div>
+
+                <!-- CTA debajo de proyectos -->
+                <div class="mt-12 text-center bg-emerald-50 rounded-2xl p-8 border border-emerald-100">
+                    <p class="text-lg font-semibold text-gray-800 mb-2">¿Le interesa alguno de nuestros proyectos?</p>
+                    <p class="text-gray-600 text-sm mb-6">Un asesor lo atenderá personalmente y resolverá todas sus dudas.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://wa.me/573005943231?text=Hola!%20Estoy%20interesado%20en%20los%20lotes%20de%20Horizontes%20Campestres"
+                           target="_blank" rel="noopener noreferrer"
+                           class="bg-[#25D366] hover:bg-[#1fba5a] text-white font-bold px-8 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg text-sm">
+                            💬 WhatsApp: 300 594 3231
+                        </a>
+                        <a href="tel:+573005943231"
+                           class="border-2 border-emerald-600 text-emerald-700 font-bold px-8 py-3 rounded-full hover:bg-emerald-50 transition-colors flex items-center justify-center gap-2 text-sm">
+                            📞 Llamar ahora
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ── Por qué Marinilla ── -->
+        <section class="py-20 bg-emerald-700 text-white" aria-labelledby="marinilla-title">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <span class="block text-emerald-300 text-xs font-semibold tracking-widest uppercase text-center mb-3">Ubicación estratégica</span>
+                <h2 id="marinilla-title" class="text-3xl font-bold text-center mb-4">¿Por qué invertir en Marinilla?</h2>
+                <p class="text-emerald-100 text-center max-w-2xl mx-auto mb-12 text-sm">
+                    Marinilla es uno de los municipios con mayor potencial de inversión en Antioquia, con un crecimiento sostenido y una ubicación privilegiada en el Oriente Antioqueño.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center hover:bg-white/20 transition-colors">
+                        <div class="text-4xl mb-3" aria-hidden="true">🌄</div>
+                        <h3 class="font-bold text-base mb-2">Clima Privilegiado</h3>
+                        <p class="text-emerald-100 text-sm">Temperatura ideal todo el año, perfecta para vivir y descansar.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center hover:bg-white/20 transition-colors">
+                        <div class="text-4xl mb-3" aria-hidden="true">🛣️</div>
+                        <h3 class="font-bold text-base mb-2">Excelente Conectividad</h3>
+                        <p class="text-emerald-100 text-sm">A menos de 1 hora de Medellín por la autopista Medellín–Bogotá.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center hover:bg-white/20 transition-colors">
+                        <div class="text-4xl mb-3" aria-hidden="true">📈</div>
+                        <h3 class="font-bold text-base mb-2">Alta Valorización</h3>
+                        <p class="text-emerald-100 text-sm">El Oriente Antioqueño presenta una de las mayores valorizaciones de la región.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-6 text-center hover:bg-white/20 transition-colors">
+                        <div class="text-4xl mb-3" aria-hidden="true">🏞️</div>
+                        <h3 class="font-bold text-base mb-2">Entorno Natural</h3>
+                        <p class="text-emerald-100 text-sm">Rodeado de naturaleza, tranquilidad y paisajes únicos del Oriente Antioqueño.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Equipo ── -->
         <section id="equipo" class="py-20 bg-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Nuestro Equipo: Su Respaldo</h2>
-                <p class="section-subtitle">
-                    Para materializar nuestra misión de servicio confiable, contamos con una estructura clara y centrada en usted. Este equipo de profesionales garantiza que cada etapa de su compra sea manejada con eficiencia, orden y la atención especializada que merece.
+                <span class="block text-emerald-600 text-xs font-semibold tracking-widest uppercase text-center mb-3">Quién lo respalda</span>
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-4">Nuestro Equipo: Su Respaldo</h2>
+                <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-14">
+                    Para materializar nuestra misión de servicio confiable, contamos con una estructura clara y centrada en usted. Este equipo garantiza que cada etapa de su compra sea manejada con eficiencia y la atención especializada que merece.
                 </p>
 
                 <div class="max-w-4xl mx-auto text-center">
                     <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-emerald-100 text-emerald-800 p-4 rounded-lg shadow font-semibold">Director General / Propietario</div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <div class="bg-gray-100 p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-gray-800 mb-2">Gerente Comercial / Ventas</h4>
-                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
-                                    <li>Coordina equipo de ventas</li>
-                                    <li>Establece metas comerciales</li>
-                                    <li>Supervisa captación de clientes</li>
+                        <div class="bg-emerald-100 text-emerald-800 p-5 rounded-xl shadow font-semibold text-base">
+                            🏢 Director General / Propietario
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-1">
+                            <div class="bg-gray-50 p-6 rounded-xl shadow border border-gray-100 text-left">
+                                <h3 class="font-semibold text-gray-800 mb-3">Gerente Comercial / Ventas</h3>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Coordina equipo de ventas</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Establece metas comerciales</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Supervisa captación de clientes</li>
                                 </ul>
                             </div>
-                            <div class="bg-gray-100 p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-gray-800 mb-2">Gerente de Marketing</h4>
-                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
-                                    <li>Diseña campañas de promoción</li>
-                                    <li>Gestiona redes sociales y web</li>
-                                    <li>Aumenta visibilidad de proyectos</li>
+                            <div class="bg-gray-50 p-6 rounded-xl shadow border border-gray-100 text-left">
+                                <h3 class="font-semibold text-gray-800 mb-3">Gerente de Marketing</h3>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Diseña campañas de promoción</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Gestiona redes sociales y web</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Aumenta visibilidad de proyectos</li>
                                 </ul>
                             </div>
                         </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <div class="bg-gray-100 p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-gray-800 mb-2">Agentes / Asesores Inmobiliarios</h4>
-                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
-                                    <li>Atención directa al cliente</li>
-                                    <li>Muestran lotes disponibles</li>
-                                    <li>Brindan asesoría personalizada</li>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-1">
+                            <div class="bg-gray-50 p-6 rounded-xl shadow border border-gray-100 text-left">
+                                <h3 class="font-semibold text-gray-800 mb-3">Agentes / Asesores Inmobiliarios</h3>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Atención directa al cliente</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Muestran lotes disponibles</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Brindan asesoría personalizada</li>
                                 </ul>
                             </div>
-                            <div class="bg-gray-100 p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-gray-800 mb-2">Soporte Administrativo y Legal</h4>
-                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
-                                    <li>Gestiona documentación</li>
-                                    <li>Trámites de escrituración</li>
-                                    <li>Garantiza cumplimiento normativo</li>
+                            <div class="bg-gray-50 p-6 rounded-xl shadow border border-gray-100 text-left">
+                                <h3 class="font-semibold text-gray-800 mb-3">Soporte Administrativo y Legal</h3>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Gestiona documentación</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Trámites de escrituración</li>
+                                    <li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5">✓</span> Garantiza cumplimiento normativo</li>
                                 </ul>
                             </div>
                         </div>
@@ -271,36 +642,159 @@
                 </div>
             </div>
         </section>
+
+        <!-- ── CTA Final ── -->
+        <section class="cta-section py-20 text-white" aria-labelledby="cta-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 id="cta-title" class="text-3xl sm:text-4xl font-extrabold mb-4">
+                    Comience hoy su inversión campestre
+                </h2>
+                <p class="text-emerald-100 text-lg mb-10 leading-relaxed">
+                    No espere más. Nuestros asesores están listos para atenderle y encontrar el lote perfecto para usted en el Oriente Antioqueño.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="https://wa.me/573005943231?text=Hola!%20Quiero%20asesoría%20para%20comprar%20un%20lote%20en%20Horizontes%20Campestres"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-wa-pulse bg-[#25D366] hover:bg-[#1fba5a] text-white font-bold px-10 py-4 rounded-full text-lg transition-all flex items-center justify-center gap-2 shadow-xl">
+                        💬 Escribir al WhatsApp
+                    </a>
+                    <a href="tel:+573005943231"
+                       class="bg-white/10 border-2 border-white text-white font-bold px-10 py-4 rounded-full text-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2">
+                        📞 300 594 3231
+                    </a>
+                </div>
+                <p class="text-emerald-200 text-sm">Atención personalizada · Lunes a sábado · Horario extendido</p>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 Horizontes Campestres. Todos los derechos reservados.</p>
-            <p class="text-sm mt-2">Su aliado de confianza en el Oriente Antioqueño.</p>
+    <!-- ── Footer ── -->
+    <footer class="bg-gray-900 text-gray-400 py-12" role="contentinfo">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-3">Horizontes Campestres</h3>
+                    <p class="text-sm leading-relaxed">Su aliado de confianza en el Oriente Antioqueño. Especialistas en lotes campestres en Marinilla, Antioquia.</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-3">Proyectos</h3>
+                    <ul class="text-sm space-y-2">
+                        <li><a href="#proyectos" class="hover:text-emerald-400 transition-colors">Horizontes Montañita — Vereda Montañita</a></li>
+                        <li><a href="#proyectos" class="hover:text-emerald-400 transition-colors">Horizontes El Salto — Vereda El Salto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-3">Contacto</h3>
+                    <ul class="text-sm space-y-3">
+                        <li>
+                            <a href="https://wa.me/573005943231?text=Hola!%20Estoy%20interesado%20en%20Horizontes%20Campestres"
+                               target="_blank" rel="noopener noreferrer"
+                               class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                💬 WhatsApp: 300 594 3231
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+573005943231"
+                               class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                📞 300 594 3231
+                            </a>
+                        </li>
+                        <li class="flex items-start gap-2 text-gray-500">
+                            <span>📍</span> Marinilla, Antioquia, Colombia
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 text-center text-sm">
+                <p>&copy; 2025 Horizontes Campestres. Todos los derechos reservados.</p>
+                <p class="mt-1 text-gray-600">Su aliado de confianza en el Oriente Antioqueño · Marinilla, Antioquia</p>
+            </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
-            const priceChartCtx = document.getElementById('priceChart')?.getContext('2d');
-            if (priceChartCtx) {
-                new Chart(priceChartCtx, {
+
+            // ── Hero Slider ──
+            const slides = document.querySelectorAll('.slide');
+            const dots   = document.querySelectorAll('.slider-dot');
+            let current  = 0;
+            let timer;
+
+            const goTo = (index) => {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                dots[current].setAttribute('aria-selected', 'false');
+                current = index;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+                dots[current].setAttribute('aria-selected', 'true');
+            };
+
+            const next = () => goTo((current + 1) % slides.length);
+
+            const startAutoplay = () => { timer = setInterval(next, 5500); };
+            const stopAutoplay  = () => clearInterval(timer);
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => { stopAutoplay(); goTo(i); startAutoplay(); });
+            });
+
+            startAutoplay();
+
+            // Pause slider when tab not visible
+            document.addEventListener('visibilitychange', () => {
+                document.hidden ? stopAutoplay() : startAutoplay();
+            });
+
+            // ── Mobile menu ──
+            const mobileBtn  = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileBtn.addEventListener('click', () => {
+                const open = mobileMenu.classList.toggle('open');
+                mobileBtn.setAttribute('aria-expanded', String(open));
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // ── Scroll spy ──
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section[id]');
+            const offset   = 90;
+
+            const setActive = () => {
+                let id = '';
+                sections.forEach(s => {
+                    if (window.scrollY >= s.offsetTop - offset) id = s.id;
+                });
+                navLinks.forEach(l => {
+                    l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
+                });
+            };
+
+            window.addEventListener('scroll', setActive, { passive: true });
+            setActive();
+
+            // ── Price Chart ──
+            const ctx = document.getElementById('priceChart')?.getContext('2d');
+            if (ctx) {
+                new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Lotes Comparables (Municipios Urbanos)', 'Lotes Similares (Mercado Marinilla)'],
+                        labels: ['Lotes Municipios Urbanos', 'Lotes Mercado Marinilla'],
                         datasets: [{
-                            label: 'Costo Promedio de Lotes',
+                            label: 'Costo Promedio',
                             data: [1250000000, 520000000],
-                            backgroundColor: [
-                                'rgba(209, 213, 219, 0.6)',
-                                'rgba(16, 185, 129, 0.6)' 
-                            ],
-                            borderColor: [
-                                'rgba(107, 114, 128, 1)',
-                                'rgba(5, 150, 105, 1)'
-                            ],
-                            borderWidth: 1
+                            backgroundColor: ['rgba(209,213,219,0.65)', 'rgba(16,185,129,0.65)'],
+                            borderColor:     ['rgba(107,114,128,1)',     'rgba(5,150,105,1)'],
+                            borderWidth: 1,
+                            borderRadius: 4
                         }]
                     },
                     options: {
@@ -311,67 +805,26 @@
                             x: {
                                 beginAtZero: true,
                                 ticks: {
-                                    callback: function(value) {
-                                        if (value >= 1000000000) {
-                                            return 'COP$' + (value / 1000000000) + ' Mil Mill.';
-                                        }
-                                        return 'COP$' + (value / 1000000) + ' Mill.';
-                                    }
+                                    callback: v =>
+                                        v >= 1e9
+                                            ? 'COP$' + (v / 1e9).toFixed(1) + ' Mil Mill.'
+                                            : 'COP$' + (v / 1e6) + ' Mill.'
                                 }
                             }
                         },
                         plugins: {
-                            legend: {
-                                display: false
-                            },
+                            legend: { display: false },
                             tooltip: {
                                 callbacks: {
-                                    label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.parsed.x !== null) {
-                                            label += new Intl.NumberFormat('es-CO', {
-                                                style: 'currency',
-                                                currency: 'COP',
-                                                maximumFractionDigits: 0
-                                            }).format(context.parsed.x);
-                                        }
-                                        return label;
-                                    }
+                                    label: ctx => ' ' + new Intl.NumberFormat('es-CO', {
+                                        style: 'currency', currency: 'COP', maximumFractionDigits: 0
+                                    }).format(ctx.parsed.x)
                                 }
                             }
                         }
                     }
                 });
             }
-
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('main section');
-            const headerOffset = 80; 
-
-            const setActiveLink = () => {
-                let currentSectionId = 'inicio';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - headerOffset;
-                    if (window.scrollY >= sectionTop) {
-                        currentSectionId = section.id;
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            };
-            
-            window.addEventListener('scroll', setActiveLink);
-            setActiveLink();
         });
     </script>
 </body>
