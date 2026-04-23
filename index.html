@@ -1,54 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Horizontes Campestres</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+    <title>Horizontes Campestres | Su Aliado en el Oriente Antioqueño</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Neutral (bg-gray-50, bg-white) with Emerald Green (emerald-600/700) -->
+    <!-- Application Structure Plan: 
+        Estructura de SPA (Single Page Application) con navegación por pestañas (scroll-spy) para guiar al usuario a través de un flujo lógico diseñado para la conversión de clientes, no para reflejar la estructura del informe.
+        Flujo:
+        1. Inicio (Misión): Establece confianza y filosofía.
+        2. Nuestra Propuesta (Valor): El núcleo. Dividido en 'Inversión Accesible' (con gráfico interactivo) y 'Acompañamiento Personalizado' (con diagrama de proceso visual en HTML/CSS). Esta es la sección más importante.
+        3. Proyectos (Oferta): Muestra los productos actuales (Montañita, El Salto) en tarjetas claras.
+        4. Nuestro Equipo (Estructura): Presenta la estructura organizacional como un diagrama HTML/CSS para reforzar la promesa de 'acompañamiento' mostrando quién está detrás.
+        Interacciones: Navegación pegajosa con resaltado de sección activa (scroll-spy), gráfico de barras interactivo (tooltips), y diseño totalmente responsivo. Esta estructura prioriza la claridad de la propuesta de valor y la facilidad de exploración para un cliente potencial.
+    -->
+    <!-- Visualization & Content Choices: 
+        1. Report Info: Comparación de precios de lotes (Propuesta de Valor, $52M vs $1.25B).
+           Goal: Comparar, resaltar la accesibilidad.
+           Viz/Method: Gráfico de Barras (Bar Chart).
+           Interaction: Tooltips al pasar el ratón.
+           Justification: Impacto visual inmediato de la diferencia de costos, mucho más fuerte que el texto solo.
+           Library: Chart.js (Canvas).
+        2. Report Info: Acompañamiento personalizado (Misión, Propuesta de Valor).
+           Goal: Organizar, informar, hacer concreto lo abstracto.
+           Viz/Method: Diagrama de Proceso/Flujo (Stepper) con 4 pasos clave (Búsqueda, Asesoría, Trámites, Entrega).
+           Interaction: Estático, visual.
+           Justification: Traduce la promesa de "acompañamiento" en un proceso tangible y fácil de entender para el cliente.
+           Library: HTML/CSS/Tailwind (Flexbox).
+        3. Report Info: Estructura Organizacional (Roles clave).
+           Goal: Organizar, generar confianza.
+           Viz/Method: Diagrama de Organigrama simple.
+           Interaction: Estático, visual.
+           Justification: Muestra que hay un equipo profesional y estructurado detrás de la promesa de servicio, reforzando la confianza.
+           Library: HTML/CSS/Tailwind (Grid/Flexbox).
+        4. Report Info: Proyectos Actuales (Montañita, El Salto).
+           Goal: Informar.
+           Viz/Method: Tarjetas de características (Cards) en un diseño de cuadrícula.
+           Interaction: Estático, informativo.
+           Justification: Formato estándar y claro para presentar productos.
+           Library: HTML/CSS/Tailwind (Grid).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
+    <style>
         body {
-            font-family: "Outfit", sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', sans-serif;
         }
-        header {
-            background: #1C3661;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-        main {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #eee;
-            color: #666;
-            position: fixed;
+        .chart-container {
+            position: relative;
             width: 100%;
-            bottom: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50;
+        }
+        .nav-link.active {
+            @apply font-bold text-emerald-600 bg-emerald-100;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 text-center mb-4;
+        }
+        .section-subtitle {
+            @apply text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12;
+        }
+        .card {
+            @apply bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl;
+        }
+        .icon-wrapper {
+            @apply flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 text-2xl font-bold;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Bienvenido a </h1>
-        <h2>Horizontes Campestres</h2>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav id="nav" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-emerald-600">Horizontes Campestres</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#inicio" class="nav-link active">Inicio</a>
+                        <a href="#propuesta" class="nav-link">Nuestra Propuesta</a>
+                        <a href="#proyectos" class="nav-link">Proyectos</a>
+                        <a href="#equipo" class="nav-link">Nuestro Equipo</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
+
     <main>
-        <img src="images/logotipo-horizontes.svg" alt="">
+        <section id="inicio" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
+                    Su Aliado de Confianza en el Oriente Antioqueño
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    En Horizontes Campestres, nuestra misión es ser más que una inmobiliaria; somos su aliado de confianza. Le acompañamos en cada etapa del proceso para encontrar la propiedad soñada, basándonos en la honestidad, la transparencia y un servicio integral que garantiza su satisfacción y refuerza su confianza.
+                </p>
+            </div>
+        </section>
+
+        <section id="propuesta" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Nuestra Propuesta de Valor Única</h2>
+                <p class="section-subtitle">
+                    Entendemos que comprar una propiedad es una gran decisión. Por eso, nuestra propuesta se basa en dos pilares fundamentales que nos diferencian: hacer su inversión accesible y brindarle un acompañamiento personalizado inigualable.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-4">1. Inversión Accesible: Vea la Diferencia</h3>
+                        <p class="text-gray-600 mb-6">
+                            Ofrecemos lotes de alta calidad a precios competitivos. Mientras que las inversiones en zonas urbanas pueden ser prohibitivas y otros lotes en la región tienen costos variables, nuestros proyectos están diseñados para maximizar su poder adquisitivo. Este gráfico ilustra el panorama del mercado, destacando por qué nuestra oferta es una oportunidad de inversión inteligente.
+                        </p>
+                        <div class="chart-container">
+                            <canvas id="priceChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">
+                            Datos de mercado basados en comparaciones de portales inmobiliarios.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-4">2. Acompañamiento Personalizado y Confianza</h3>
+                        <p class="text-gray-600 mb-8">
+                            La confianza es la base de todo lo que hacemos. Actuamos con integridad total y nos centramos en entender sus necesidades en cada fase de la compra. Este es nuestro compromiso de servicio:
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="icon-wrapper"><span>1</span></div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">Búsqueda y Asesoría</h4>
+                                    <p class="text-gray-600">Entendemos su visión y le presentamos las mejores opciones sin presión, con total transparencia.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="icon-wrapper"><span>2</span></div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">Negociación Honesta</h4>
+                                    <p class="text-gray-600">Actuamos con integridad, asegurando precios justos y condiciones claras en cada transacción.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="icon-wrapper"><span>3</span></div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">Gestión y Trámites</h4>
+                                    <p class="text-gray-600">Manejamos la documentación y los trámites legales, garantizando un proceso ordenado y sin complicaciones.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="icon-wrapper"><span>4</span></div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">Entrega y Satisfacción</h4>
+                                    <p class="text-gray-600">Nuestro acompañamiento continúa hasta que tenga su propiedad, asegurando una experiencia de compra exitosa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="py-20 bg-emerald-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Proyectos Actuales en Marinilla</h2>
+                <p class="section-subtitle">
+                    Descubra nuestras parcelaciones de terrenos en zonas campestres, diseñadas para ser accesibles y listas para construir la vivienda de sus sueños, aprovechando la tranquilidad y los paisajes del Oriente Antioqueño.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <div class="p-8">
+                            <span class="text-sm font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">Vereda Montañita</span>
+                            <h3 class="text-2xl font-bold text-gray-800 my-3">Horizontes Montañita</h3>
+                            <p class="text-gray-600">
+                                Una parcelación exclusiva de lotes para viviendas campestres. Los terrenos se ofrecen a un precio excelente y ya están divididos y listos para que comience su proyecto de construcción en un entorno rural y asequible.
+                            </p>
+                        </div>
+                        <div class="px-8 pb-6 bg-gray-50">
+                            <span class="text-gray-700 font-medium">Lotes listos para construcción</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="p-8">
+                            <span class="text-sm font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">Vereda El Salto</span>
+                            <h3 class="text-2xl font-bold text-gray-800 my-3">Horizontes El Salto</h3>
+                            <p class="text-gray-600">
+                                Otro de nuestros proyectos de loteo campestre, situado en la Vereda El Salto. Al igual que Montañita, ofrece lotes a precios competitivos y está completamente preparado para el desarrollo de viviendas en un entorno natural.
+                            </p>
+                        </div>
+                        <div class="px-8 pb-6 bg-gray-50">
+                            <span class="text-gray-700 font-medium">Precios competitivos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipo" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Nuestro Equipo: Su Respaldo</h2>
+                <p class="section-subtitle">
+                    Para materializar nuestra misión de servicio confiable, contamos con una estructura clara y centrada en usted. Este equipo de profesionales garantiza que cada etapa de su compra sea manejada con eficiencia, orden y la atención especializada que merece.
+                </p>
+
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-emerald-100 text-emerald-800 p-4 rounded-lg shadow font-semibold">Director General / Propietario</div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-gray-100 p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-gray-800 mb-2">Gerente Comercial / Ventas</h4>
+                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
+                                    <li>Coordina equipo de ventas</li>
+                                    <li>Establece metas comerciales</li>
+                                    <li>Supervisa captación de clientes</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-gray-800 mb-2">Gerente de Marketing</h4>
+                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
+                                    <li>Diseña campañas de promoción</li>
+                                    <li>Gestiona redes sociales y web</li>
+                                    <li>Aumenta visibilidad de proyectos</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-gray-100 p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-gray-800 mb-2">Agentes / Asesores Inmobiliarios</h4>
+                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
+                                    <li>Atención directa al cliente</li>
+                                    <li>Muestran lotes disponibles</li>
+                                    <li>Brindan asesoría personalizada</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-gray-800 mb-2">Soporte Administrativo y Legal</h4>
+                                <ul class="text-left text-sm text-gray-600 list-disc list-inside space-y-1">
+                                    <li>Gestiona documentación</li>
+                                    <li>Trámites de escrituración</li>
+                                    <li>Garantiza cumplimiento normativo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        &copy; 2024 Horizontes
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Horizontes Campestres. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Su aliado de confianza en el Oriente Antioqueño.</p>
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const priceChartCtx = document.getElementById('priceChart')?.getContext('2d');
+            if (priceChartCtx) {
+                new Chart(priceChartCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Lotes Comparables (Municipios Urbanos)', 'Lotes Similares (Mercado Marinilla)'],
+                        datasets: [{
+                            label: 'Costo Promedio de Lotes',
+                            data: [1250000000, 520000000],
+                            backgroundColor: [
+                                'rgba(209, 213, 219, 0.6)',
+                                'rgba(16, 185, 129, 0.6)' 
+                            ],
+                            borderColor: [
+                                'rgba(107, 114, 128, 1)',
+                                'rgba(5, 150, 105, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        if (value >= 1000000000) {
+                                            return 'COP$' + (value / 1000000000) + ' Mil Mill.';
+                                        }
+                                        return 'COP$' + (value / 1000000) + ' Mill.';
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.x !== null) {
+                                            label += new Intl.NumberFormat('es-CO', {
+                                                style: 'currency',
+                                                currency: 'COP',
+                                                maximumFractionDigits: 0
+                                            }).format(context.parsed.x);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            const headerOffset = 80; 
+
+            const setActiveLink = () => {
+                let currentSectionId = 'inicio';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerOffset;
+                    if (window.scrollY >= sectionTop) {
+                        currentSectionId = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink();
+        });
+    </script>
 </body>
 </html>
